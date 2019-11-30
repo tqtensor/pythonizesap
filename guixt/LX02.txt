@@ -1,0 +1,31 @@
+// SAP Easy Access 
+Screen SAPLSMTR_NAVIGATION.0100
+  Enter "LX02"
+ 
+// WM Stock: Initial Screen 
+Screen RLS10020.1000
+  Set F[%_S1_LGNUM_%_APP_%-TEXT] 	"inWarehouse"
+  Set F[Plant] 	"inPlant"
+  Set F[Layout] 	"/BLOCKLX02"
+  Enter "/8"      	// Execute
+
+// WM Stock with Material Description 
+Screen RLS10020.0120
+  Enter "/9"      	// Local File...
+ 
+// Save list in file... 
+Screen SAPLSPO5.0110
+  Enter
+ 
+// WM Stock with Material Description 
+Screen SAPLSFES.0200
+  Set F[File Name] 	"LX02_inTimetamp.csv"
+  Enter "/11"      	// Replace
+ 
+// WM Stock with Material Description 
+Screen RLS10020.0120
+  Enter "/15"      	// Exit
+ 
+// WM Stock: Initial Screen 
+Screen RLS10020.1000
+  Enter "/15"      	// Exit
